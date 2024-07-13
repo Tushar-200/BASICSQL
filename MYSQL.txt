@@ -1,0 +1,69 @@
+BASIC TERMINOLOGIES
+
+Database 
+Database is a collection of data in a format that can be easily accessed 
+(Digital) 
+A software applications used to manage our database is called DBMS (Database 
+Management System) 
+
+Types Of Databases
+Relational - Data stored in tables e.g. MYSQL,PostgreSQL,Microsoft SQL server
+Non Relational - Data not stored in tables e.g. MongoDB, NOSQL
+
+SQL (Structured Query Language)
+SQL is a programming language used to interact with relational databases 
+It is used to perform CURD Operaations
+CREATE
+UPDATE
+READ
+DELETE
+
+SEQUEL - Structured English Query Language
+
+Types of SQL
+DDL (Data Definition Language)- create,alter,update,truncate and drop
+DQL (Data Query Language)- Select
+DML (Data Manipulation Language) - grant and revoke permissions to users
+TCL (Transaction Control Language) - start transaction,commit,rollback
+
+Entity Relationship Model
+Entity - Anything which has physical existence 
+Attribute Characteristics of Entity
+Student (Roll no, Age, Address )
+Relationship - Cardinality
+
+
+Types of Attribute 
+1. Single vs multivalued Attribute
+multivalued Having 2 or more than 2 values  
+single Having 1 unique value
+example 
+Single - Registration_no of student_name
+multivalued - student_name (e.g. bob,max,bob)
+
+2. Simple vs Composite
+Simple which does not broken further
+Composite which is broken further 
+example
+Composite - student_name broken further into first_name, Second_name, Last_name
+Simple - mobile number
+
+3. Stored vs Derived
+stored - Having fixed values
+derived - whose value calculated from other Attributes
+example
+derived age Attribute is derived from dob Attribute
+
+4. Key vs NonKey Attributes
+Key - which is used to uniquely identify rows
+NonKey - which may have unique values or not
+
+5. Required vs Optional Attributes
+Required which is compulsary 
+optional which is not compulsary we can skip It
+
+6. Complex Attribute
+Composite plus multivalued 
+
+
+
