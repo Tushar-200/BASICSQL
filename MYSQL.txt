@@ -166,6 +166,9 @@ WHERE Column_name = 'value';
 
 
 UPDATE AND DELETE
+UPDATE table_name
+SET COLUMN = VALUE
+WHERE CONDITION ;
 
 
 
