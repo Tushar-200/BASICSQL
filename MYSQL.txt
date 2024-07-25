@@ -65,5 +65,109 @@ optional which is not compulsary we can skip It
 6. Complex Attribute
 Composite plus multivalued 
 
+Database
+--create
+syntax- Create Database database_name;
+
+-- To access the database
+syntax- USE database_name;
+
+--drop
+syntax- Drop database database_name;
+
+--read only
+syntax- ALTER DATABASE database_name READ ONLY = 1;
+-- we cannot make any modification to it but still access the data within
+
+-- To disable read only Mode
+syntax- ALTER DATABASE database_name READ ONLY = 0;
+
+tables
+--Create
+syntax -
+CREATE TABLE table_name (
+    Column1, datatype,
+    Column2, datatype,
+    Column3, datatype,
+    ...............
+);
+
+-- Select
+syntax - Select * from table_name;
+
+-- Rename
+syntax - RENAME TABLE old_table to new_table;
+
+-- Drop
+syntax - DROP TABLE table_name;
+
+-- ALTER - TO ADD Column
+syntax - 
+ALTER TABLE table_name
+ADD Column_name datatype;
+
+-- ALTER - TO RENAME Column
+syntax -
+ALTER TABLE table_name
+RENAME COLUMN old_table to new_table;
+
+-- ALTER - To modify Column_name (Change the datatype)
+syntax -
+ALTER TABLE table_name
+modify Column_name datatype
+
+-- ALTER - To Drop a Column
+syntax -
+ALTER TABLE table_name
+DROP COLUMN Column_name;
+
+-- ALTER - To Change the position of Column
+syntax -
+ALTER TABLE table_name
+modify Column_name datatype
+AFTER POSITION_COLUMNAME ;
+
+
+-- INSERT
+-- TO Multiple rows
+syntax -
+INSERT INTO table_name
+VALUES(value1,'value2','value3'),
+       (,,),
+       (,,),
+       (,,);
+
+-- To add single row
+synatx - 
+INSERT INTO table_name(collumn1,column2,column3,column4)
+VALUES('value1','value2','value3','value4');
+
+-- SELECT 
+-- To select all columns
+synatx -
+select * from table_name;
+
+-- To select specific rows
+syntax -
+select column_names form table_name;
+
+-- To select all distinct values
+syntax -
+SELECT DISTINCT column_names from table_name;
+
+-- WHERE -- To fillter all the records
+syntax -
+SELECT * FROM table_name
+WHERE condition;
+
+synatx- 
+SELECT * FROM table_name
+WHERE Column_name = 'value';
+
+
+UPDATE AND DELETE
+
+
+
 
 
