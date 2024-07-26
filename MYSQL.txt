@@ -170,7 +170,24 @@ UPDATE table_name
 SET COLUMN = VALUE
 WHERE CONDITION ;
 
+-- CONSTANT VALUE
+UPDATE table_name
+SET COLUMN = VALUE;
 
+-- To delete a row from a table 
+DELETE * FROM table_name;
 
+DELETE FROM table_name
+WHERE CONDITION;
+
+SET AUTOCOMMIT = OFF ;
+-- with this query our transaction will not save automatically
+-- It creates a save point 
+
+-- To undo the statements
+rollback;
+
+-- TO execute the statements permanently
+commit;
 
 
