@@ -385,3 +385,73 @@ WHERE customer_id = 3;
 this query will rerturn Error
 to delete the customer_id  where value is 3 first you have delete foreign 
 key from transction  
+
+
+JOINS
+INNER JOIN
+The common data extracted from both the tables 
+in mathematics its like a intersection of two sets 
+syntax -
+SELECT * FROM 
+TABLEA INNER JOIN TABLEB
+ON TABLEA.FOREIGNKEY =TABLEB.PRIMARYKEY;
+EXAMPLE -
+SELECT * FROM transaction INNER JOIN customers
+ON transaction.customer_id = customers.customer_id;
+
+
+LEFT JOINS
+All data extracting from left table and linking it with the right table 
+in mathematics its like extracting all from setA and Intersection of setA and setB
+syntax -
+SELECT * FROM TABLEA LEFTJOIN TABLEB
+ON TABLEA.FOREIGNKEY = TABLEB.PRIMARYKEY;
+EXAMPLE -
+SELECT * FROM transaction LEFT JOIN customers
+ON transaction.customer_id = customers.customer_id;
+
+RIGHT JOINS
+All data extracting from right table and linking it with left table
+in mathematics its like extracting all from setB and Intersection of setA and setB
+syntax -
+SELECT * FROM TABLEA RIGHT JOIN TABLEB
+ON TABLEA.FOREIGNKEY = TABLEB.PRIMARYKEY;
+EXAMPLE -
+SELECT * FROM transaction RIGHT JOIN customers
+ON transaction.customer_id = customers.customer_id;
+
+
+AGGREGATE FUNCTIONS
+
+COUNT()
+SELECT COUNT(COLUMN) AS COUNT_NAME
+FROM table_name;
+This Function returns the count of the values in a column
+
+MAX()
+SELECT MAX(COLUMN) AS MAXIMUM_NAME
+FROM table_name;
+This Function returns the maximum of the value in the column
+
+MIN()
+SELECT MIN(COLUMN) AS MINIMUM_VALUES
+FROM table_name;
+This Function returns the minimum of the value in the column
+
+SUM()
+SELECT SUM(COLUMN) AS TOTAL
+FROM table_name;
+This Function returns the total of the values in the column
+
+AVG()
+SELECT AVG(COLUMN) AS AVERAGE
+FROM table_name;
+This Function returns the average of the values in the column
+
+CONCAT()
+SELECT CONCAT(COLUMN1," ",COLUMN2) AS CONCAT_NAME
+FROM table_name;
+This Function returns the new column by conacting columns
+
+LOGICAL OPERATORS
+
