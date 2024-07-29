@@ -454,4 +454,29 @@ FROM table_name;
 This Function returns the new column by conacting columns
 
 LOGICAL OPERATORS
+AND
+EXAMPLE -
+SELECT * FROM Employees 
+WHERE hire_date < '2023-01-05' and job = 'cook';
+This table returns the value  if both the condition is satisfied
+OR 
+Example-
+SELECT * FROM Employees
+WHERE job = 'cook' or job = 'cashier';
+This table returns the value if either of the condition is satisfied
+NOT 
+Example-
+SELECT * FROM Employees
+WHERE NOT job = 'Manager'
+This table returns all the values except for Manager
+BETWEEN 
+SELECT * FROM 
+WHERE hire_date BETWEEN '2023-01-04' AND '2023-01-07';
+used within in a single column
+IN 
+SELECT * FROM 
+WHERE job IN ('cook','cashier','manager');
+WILD CHARACTERS 
+SELECT * FROM Employees
+where hire_date Like '2023';
 
