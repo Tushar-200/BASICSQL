@@ -1,0 +1,142 @@
+BASIC TERMINOLOGIES
+
+Document - A group of field value pairs to represent an object
+Collection - A group of one or more documents
+Database - Database is a group of one or more doccuments
+
+Databases
+To display the available databases
+show dbs 
+
+To switch or use the database
+use db_name
+
+To create the database
+use db_name
+
+To drop the database 
+db.dropDatabase()
+
+Collection
+To create the collection
+db.createcollection('students')
+
+To display the collections
+show collections
+
+To drop collections
+db.collection_name.drop()
+
+To insert the Document in the collection
+db.students.insertone({name:'spongebob',age:30,gpa:3.2})
+
+To display the doccuments
+db.students.find()
+
+To insert many documents in the collection
+db.students.insertMany([{name:'krab',age:25,gpa :4.2},
+                        {name:'sandy',age:32,gpa:4.7},
+                        {name:'patrick',age:42,gpa:5.4}])
+
+DATATYPES
+string - 'Larry'
+integer - 32
+float/double - 2.75
+NULL
+Date - 2023-01-02 yyyy/mm/dd
+boolean - true/false
+array - ['python','mysql','mongodb']
+Nested documents - {street :'Fake Street',city :'Bottom',zip :1234}
+
+Sorting and Limiting
+Sort()
+db.students.find().sort({name:1})
+In alphabetical orders
+db.students.find().sort({name:-1})
+In reverse alphabetical order
+Limit()
+db.students.find().limit(2)
+db.students.find().lliimit(1)
+
+db.students.find().sort({name:-1}).limit(2)
+
+db.students.find({query},{projection})
+db.students.find({},{name:true})
+db.students.find({},{_id:False,name:true})
+
+Update 
+db.students.updateOne({filter},$set:{update})
+
+db.students.updateOne({name:'spongebob'},{$set:{fulltime:true}})
+
+db.students.updateOne({name:'spongebob'},{$set:{fulltime:true}})
+
+db.students.updateMany({fulltime:{$exists:false}},{$set:{fulltime:true}})
+
+Delete 
+db.students.deleteOne({name:'Larry'})
+
+db.students.deleteMany({fulltime:False})
+
+Comparasion operators 
+$ne - not equal
+db.students.find({name:{$ne:'spongebob'}})
+
+$lt - less than
+db.students.find({age:{$lt:20}})
+
+$lte - less than equal
+db.students.find({age:{$lte:25}})
+
+$gt - greater than
+db.students.find({age:{$gt:25}})
+
+$gte - greater than or equal to 
+db.students.find({age:{$gte:21}})
+
+certain range 
+db.students.find({age:{$lte:27,$gte:20}})
+
+$in - in operator
+db.students.find({name:{$in : ['spongebob','larry','carry']}})
+
+$nin - not in operator
+db.students.find({name:{$nin:['spongebob','larry','carry']}})
+
+LOGICAL OPERATORS
+$and 
+joins query clause with a logical AND returns all documents that matches 
+the condition of both clauses 
+db.students.find({$and:[{fulltime:true},{age:{$gte:22}}]})
+Both the condition needs to be true 
+
+$not 
+inverts the effect of a query expression and return the documents that do 
+not match the query expression
+db.students.find({age:{$not:{$gte:20}}})
+will return any document rather tahn this
+
+$nor 
+joins query caluses with a logical nor returns all document that fail to
+match both clauses 
+db.students.find({$nor:[{fulltime:true},{age:{$lte:20}}]})
+will return any document where these conditions are false Both the conditions
+needs to be false 
+
+
+$or 
+joins query clauses with a logical OR returns all documents that match the 
+condition of either clause 
+
+INDEXES 
+Indexes suppport the efficient execution of queries in MongoDB without Indexes
+MongoDB must perform a collection scan i.e. scan every document in a collection
+to select those documents that match the query statement. if an appropriate 
+index exists for a query, MongoDB can use the index to limit the number of 
+documents it must inspect
+
+db.students.find({name:'Larry'}).explain("executionstats")
+db.students.CreateIndex({name:1})
+name_1
+db.students.getIndexes()
+db.students.dropIndex('name_1')
