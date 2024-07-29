@@ -476,7 +476,47 @@ used within in a single column
 IN 
 SELECT * FROM 
 WHERE job IN ('cook','cashier','manager');
+
 WILD CHARACTERS 
 SELECT * FROM Employees
 where hire_date Like '2023';
+
+ORDER BY  
+SELECT * FROM table_name
+ORDER BY Column_name ASC/DESC ;
+The default is considered as asc 
+
+LIMIT 
+Limit Clause is used to limit the number of records useful if you are 
+working with a lot of data can be used to display a large data on pages(pagination)
+SELECT * FROM customers
+LIMIT 2;
+This query will return only first two rows from the table
+
+UNION
+combines the result of two or more select statements
+select * from transations UNION select * from customers;
+condition - number of both the tables should be same 
+
+UNION ALL 
+select * from transations UNION select * from customers;
+
+the main difference between union and union all is 
+union does not allow duplicate values
+union all allows duplicate values
+
+SELF JOIN
+JOIN another copy of the table to itself and used to compare rows of the 
+same table helps to display a heirarchy of data
+
+SELECT * FROM 
+customers AS A INNER JOIN customers AS B
+ON A.customer_id = B.customer_id;
+
+FULL OUTER JOIN
+SELECT column_names FROM 
+TABLEA FULL OUTER JOIN TABLEB
+ON TABLEA.Column_name = TABLEB.Column_name
+WHERE condition;
+
 
