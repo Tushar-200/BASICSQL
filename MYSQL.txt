@@ -323,5 +323,65 @@ VALUES(1,5.65),
 
 SELECT * FROM transactions;
 
+PRIMARY KEY
+One primary key per table
+PRIMARY KEY = unique plus NOT NULL
+Avoids duplicate entry
+
+CREATE TABLE transaction(
+    transaction_id INT primary key,
+    Amount Decimal(4,2)
+);
+
+ALTER TABLE transaction
+ADD CONSTRAINT PRIMARY KEY(transaction_id);
+
+AUTO INCREMENT 
+CREATE TABLE transaction(
+    transaction_id INT primary key AUTO INCREMENT,
+    Amount Decimal(4,2)
+);
+
+INSERT INTO transaction(Amount)
+VALUES(4.85),(5.75),(3.89);
+
+ALTER TABLE transactions
+AUTO INCREMENT = 1000;
 
 
+FOREIGN KEY
+MYSQL Supports foreign keys, which permit cross referencing related data across 
+tables and foreign key constraint, which help keep the realted data consistent
+A foreign key Relationship involves a parent table that holds the initial column
+values. A foreign key constraint defined on the child table
+
+Example
+CREATE TABLE customers(
+    customer_id INT PRIMARY KEY AUTO INCREMENT,
+    first_name varchar(25),
+    Last_name varchar(25)
+);
+
+SELECT * FROM customers;
+
+INSERT INTO customers(first_name,Last_name)
+VALUES('FRED','FISH'),
+      ('LARRY','LOBSTER'),
+      ('BUBBLE','BASS');
+
+SELECT * FROM customers;
+
+CREATE TABLE transaction(
+    transaction_id INT PRIMARY KEY AUTO INCREMENT,
+    Amount DECIMAL(4,2),
+    customer_id INT,
+    FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
+);
+
+select * from transactions;
+
+DELETE * FROM customers
+WHERE customer_id = 3;
+this query will rerturn Error
+to delete the customer_id  where value is 3 first you have delete foreign 
+key from transction  
