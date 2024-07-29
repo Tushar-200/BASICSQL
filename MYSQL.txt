@@ -166,20 +166,25 @@ WHERE Column_name = 'value';
 
 
 UPDATE AND DELETE
+syntax-
 UPDATE table_name
 SET COLUMN = VALUE
 WHERE CONDITION ;
 
 -- CONSTANT VALUE
+synatx -
 UPDATE table_name
 SET COLUMN = VALUE;
 
 -- To delete a row from a table 
+syntax -
 DELETE * FROM table_name;
 
+syntax -
 DELETE FROM table_name
 WHERE CONDITION;
 
+syntax -
 SET AUTOCOMMIT = OFF ;
 -- with this query our transaction will not save automatically
 -- It creates a save point 
@@ -189,5 +194,134 @@ rollback;
 
 -- TO execute the statements permanently
 commit;
+
+DATE AND TIME 
+current_date()
+current_time()
+Now()
+Example 
+INSERT INTO table_name
+VALUES(current_date(),current_time(),Now())
+
+DROP 
+syntax -
+DROP TABLE table_name; -- TO DROP THE TABLE
+DROP DATABASE database_name; -- TO DROP THE DATABASE 
+
+UNIQUE 
+-- used to avoid duplicate values 
+Example
+CREATE TABLE product(
+    product_id INT,
+    product_name Varchar(25),
+    price DECIMAL(4,2)
+);
+
+ALTER TABLE product
+ADD CONSTRAINT
+UNIQUE(product_name);
+
+-- The unique constraint ensures that all values in a column are different
+Both the UNIQUE and PRIMARY KEY constraint provide a guarantee for uniqueness 
+for a column or set of columns
+A PRIMARY KEY constraint automatically has a UNIQUE constraint
+However, you can have many unique constraint as per table, but only one 
+PRIMARY KEY
+
+-- Drop a Unique constraint
+ALTER  TABLE table_name
+DROP INDEX Column_name;
+
+NOT NULL
+CREATE TABLE table_name(
+    Column1 datatype,
+    Column2 datatype,
+    Column3 datatype NOT NULL,
+    ................
+);
+
+ALTER TABLE products
+MODIFY COLUMN price Decimal(4,2) NOT NULL;
+
+
+INSERT INTO table_name
+values(104,'cookie',NULL);
+This query will return Error if third column of this table is set to be 
+NOT NULL
+NOT NULL Constraint enforces a column to not accept NULL VALUES 
+
+CHECK
+The Check Constraint is used to limit the value range that can be placed 
+in a column
+SQL CHECK ON CREATE TABLE
+CREATE TABLE table_name(
+    emp_id INT NOT NULL,
+    first_name varchar(25),
+    Last_name varchar(25),
+    hourly_pay DECIMAL(4,2),
+    constraint chk_hourly_pay CHECK(hourly_pay >= 10)
+);
+-- constraint constraint_name CHECK(condition)
+                                OR 
+CREATE TABLE Employees(
+    emp_id INT NOT NULL,
+    first_name varchar(25),
+    Last_name varchar(25),
+    hourly_pay Decimal(4,2) CHECK(hourly_pay >= 10)
+);
+
+-- SQL CHECK ON ALTER TABLE
+ALTER TABLE table_name
+ADD CHECK(hourly_pay >= 10);
+
+ALTER TABLE table_name
+ADD CONSTRAINT CHK_EMP CHECK(hourly_pay >= 10);
+
+DROP A CONSTRAINT
+ALTER TABLE Employees
+DROP CHECK chk_hourly_pay;
+
+ALTER TABLE Employees
+DROP CONSTRAINT chk_hourly_pay;
+
+DEFAULT
+Example
+SELECT * FROM produts;
+
+INSERT INTO products 
+VALUES(104,'Straw',0.00),
+      (105,'Napkin',0.00),
+      (106,'Fork',0.00);
+
+--INSTEAD 
+CREATE TABLE products(
+    product_id INT,
+    product_name Varchar(25),
+    price Decimal(4,2) DEFAULT 0
+);
+
+ALTER TABLE products 
+ALTER price SET DEFAULT 0;
+
+INSERT INTO products(product_id,product_name)
+VALUES(104,'Straw'),
+      (105,'napkin'),
+      (106,'fork'),
+      (107,'spoon');
+
+
+--ANOTHER Example
+CREATE TABLE transctions(
+    transaction_id INT, 
+    Amount DECIMAL(5,2),
+    transaction_date DATETIME DEFAULT Now()
+);
+INSERT INTO transactions(transaction_id,Amount)
+VALUES(1,5.65),
+      (2,7.83),
+      (3,8.45);
+
+SELECT * FROM transactions;
+
 
 
